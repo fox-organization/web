@@ -25,12 +25,17 @@
     "url": "https://ng-omar.com"
   },
   "scripts": {
+    "build": "ng build",
+    "check:all": "npm-run-all build check:lint check:cspell check:format check:style",
+    "check:cspell": "npx cspell --no-progress --show-suggestions --show-context",
+    "check:format": "npx prettier . --check",
+    "check:lint": "npx eslint .",
+    "check:style": "npx stylelint \"src/**/*.{css,less,sass,scss,sss}\"",
+    "lint": "ng lint",
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint"
+    "watch": "ng build --watch --configuration development"
   },
   "prettier": "@js-omar/prettier-config",
   "dependencies": {
@@ -56,6 +61,7 @@
     "@angular/compiler-cli": "^15.1.0",
     "@js-omar/eslint-config": "^1.17.1",
     "@js-omar/prettier-config": "^1.0.5",
+    "@js-omar/stylelint-config": "^1.1.0",
     "@types/jasmine": "~4.3.0",
     "@typescript-eslint/eslint-plugin": "5.48.1",
     "@typescript-eslint/parser": "5.48.1",
